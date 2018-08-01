@@ -10,10 +10,10 @@
 
 <body>
   <div class="container">
-    <h1 class="countDown"></h1>
+    <h1 class="countdown"></h1>
     <p class="desc">
       Sind vergangen, als es das letzte mal Schnitzel bei
-      <a href="https://gambit.de">Gambit</a> gab!
+      <a href="https://www.gambit.de/" target="_blank">Gambit</a> gab!
     </p>
   </div>
   <script type="text/javascript">
@@ -28,7 +28,7 @@
     }
 
     var numberOfDaysWithoutSchnitzel = getDaysBetweenDates(lastDateOfSchnitzel, new Date())
-    document.getElementsByClassName('countDown')[0].innerHTML = numberOfDaysWithoutSchnitzel + ' Tage'
+    document.getElementsByClassName('countdown')[0].innerHTML = numberOfDaysWithoutSchnitzel + ' Tage'
   </script>
 </body>
 
