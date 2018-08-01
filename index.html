@@ -4,20 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <title>Schnitzel Countdown</title>
 </head>
 
 <body>
-  <div class="container">
-    <h1 class="countdown"></h1>
-    <p class="desc">
-      Sind vergangen, als es das letzte mal Schnitzel bei
-      <a href="https://www.gambit.de/" target="_blank">Gambit</a> gab!
-    </p>
+  <noscript>Keine Schnitzel ohne JavaScript!</noscript>
+  <canvas class="background"></canvas>
+  <div class="app">
+    <div class="container">
+      <h1 class="countdown"></h1>
+      <p class="desc ">
+        Sind vergangen, als es das letzte mal Schnitzel bei
+        <a href="https://www.gambit.de/ " target="_blank ">Gambit</a> gab!
+        <small class="emoji"></small>
+      </p>
+    </div>
   </div>
-  <script type="text/javascript">
-    var lastDateOfSchnitzel = new Date('07/30/2018')
+  <script type="text/javascript ">
+    var lastDateOfSchnitzel = new Date('07/01/2018')
+    var emojis = ['😊', '🙄', '🤨', '😢', '😰', '😭']
+    var emotion;
 
     function getDaysBetweenDates(date1, date2) {
       var oneDay = 1000 * 60 * 60 * 24;
@@ -29,7 +37,34 @@
 
     var numberOfDaysWithoutSchnitzel = getDaysBetweenDates(lastDateOfSchnitzel, new Date())
     document.getElementsByClassName('countdown')[0].innerHTML = numberOfDaysWithoutSchnitzel + ' Tage'
+
+    switch (true) {
+      case numberOfDaysWithoutSchnitzel < 5:
+        emotion = emojis[0]
+        break;
+      case numberOfDaysWithoutSchnitzel >= 5 && numberOfDaysWithoutSchnitzel < 10:
+        emotion = emojis[1]
+        break;
+      case numberOfDaysWithoutSchnitzel >= 10 && numberOfDaysWithoutSchnitzel < 15:
+        emotion = emojis[2]
+        break;
+      case numberOfDaysWithoutSchnitzel >= 15 && numberOfDaysWithoutSchnitzel < 20:
+        emotion = emojis[3]
+        break;
+      case numberOfDaysWithoutSchnitzel >= 20 && numberOfDaysWithoutSchnitzel < 25:
+        emotion = emojis[4]
+        break;
+      case numberOfDaysWithoutSchnitzel > 25:
+        emotion = emojis[5]
+        break;
+      default:
+        emotion = emojis[0]
+        break;
+    }
+
+    document.getElementsByClassName('emoji')[0].innerHTML = emotion
   </script>
+  <script src="schnitzelBackground.js"></script>
 </body>
 
 </html>
