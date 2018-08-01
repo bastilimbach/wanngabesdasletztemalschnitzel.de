@@ -46,6 +46,22 @@ body {
   z-index: -1;
 }
 
+.createdBy {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  font-family: 'Permanent Marker', cursive;
+  color: #4d4d4d;
+  margin: 0 5px 5px 0;
+  font-size: 0.8rem;
+}
+
+.createdBy a {
+  text-decoration: none;
+  color: #a1a1a1;
+}
+
 noscript {
   position: absolute;
   z-index: 999;
