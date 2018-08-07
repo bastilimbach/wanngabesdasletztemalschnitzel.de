@@ -52,8 +52,10 @@
       return Math.round(difference / oneDay)
     }
 
+    var suffix = 'Tage'
     var numberOfDaysWithoutSchnitzel = getDaysBetweenDates(lastDateOfSchnitzel, new Date())
-    document.getElementsByClassName('countdown')[0].innerHTML = numberOfDaysWithoutSchnitzel + ' Tage'
+    if (numberOfDaysWithoutSchnitzel === 1) { suffix = 'Tag' }
+    document.getElementsByClassName('countdown')[0].textContent = numberOfDaysWithoutSchnitzel + ' ' + suffix
 
     switch (true) {
       case numberOfDaysWithoutSchnitzel < 5:
@@ -79,7 +81,7 @@
         break;
     }
 
-    document.getElementsByClassName('emoji')[0].innerHTML = emotion
+    document.getElementsByClassName('emoji')[0].textContent = emotion
   </script>
   <script src="schnitzelBackground.js"></script>
 </body>
