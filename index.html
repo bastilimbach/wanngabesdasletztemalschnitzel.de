@@ -26,8 +26,9 @@
   <div class="app">
     <div class="container">
       <h1 class="countdown"></h1>
+
       <p class="desc ">
-        Sind vergangen, als es das letzte mal Schnitzel bei
+        <span class="verb">Sind</span> vergangen, als es das letzte mal Schnitzel bei
         <a href="https://www.gambit.de/ " target="_blank ">Gambit</a> gab!
         <small class="emoji"></small>
       </p>
@@ -53,9 +54,14 @@
     }
 
     var suffix = 'Tage'
+    var descriptionVerb = 'Sind'
     var numberOfDaysWithoutSchnitzel = getDaysBetweenDates(lastDateOfSchnitzel, new Date())
-    if (numberOfDaysWithoutSchnitzel === 1) { suffix = 'Tag' }
+    if (numberOfDaysWithoutSchnitzel === 1) { 
+      suffix = 'Tag'
+      descriptionVerb = 'Ist' 
+    }
     document.getElementsByClassName('countdown')[0].textContent = numberOfDaysWithoutSchnitzel + ' ' + suffix
+    document.getElementsByClassName('verb')[0].textContent = descriptionVerb
 
     switch (true) {
       case numberOfDaysWithoutSchnitzel < 5:
